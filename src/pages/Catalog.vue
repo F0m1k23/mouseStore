@@ -43,9 +43,9 @@ function onSortChanged(key) {
     class="max-w-7xl mx-auto sm:px-6 lg:px-8 box-border my-10 py-12 bg-gray-900"
   >
     <div class="flex items-center justify-between">
-      <h2 class="text-2xl font-bold mt-3 text-teal-400">Все товары</h2>
+      <h2 class="text-2xl font-bold mt-3 text-teal-400">All Products</h2>
       <div class="text-sm text-gray-600 mt-3">
-        Показано: {{ displayedProducts.length }}
+        Shown: {{ displayedProducts.length }}
       </div>
     </div>
 

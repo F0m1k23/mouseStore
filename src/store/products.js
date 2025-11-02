@@ -10,7 +10,7 @@ export const useProductsStore = defineStore('products', () => {
 			products.value = data
 			console.log(data)
 		} catch (error) {
-			console.log(`Ошибка ${error}`, error)
+			console.log(`Error ${error}`, error)
 		}
 	}
 	const showProduct = async id => {
@@ -22,7 +22,7 @@ export const useProductsStore = defineStore('products', () => {
 				.single()
 			product.value = data
 		} catch (error) {
-			console.log(`Ошибка ${error}`, error)
+			console.log(`Error ${error}`, error)
 		}
 		console.log(id)
 		console.log(product.value)

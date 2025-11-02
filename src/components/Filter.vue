@@ -12,12 +12,12 @@ function chooseSort(key) {
 
 const selectedSortLabel = computed(() => {
   const map = {
-    default: "По умолчанию",
-    "price-asc": "Цена ↑",
-    "price-desc": "Цена ↓",
-    popularity: "Популярность",
+    default: "Default",
+    "price-asc": "Price ↑",
+    "price-desc": "Price ↓",
+    popularity: "Popularity",
   };
-  return map[selectedSort.value] || "По умолчанию";
+  return map[selectedSort.value] || "Default";
 });
 </script>
 
@@ -147,25 +147,25 @@ const selectedSortLabel = computed(() => {
             @click="chooseSort('default')"
             class="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100"
           >
-            По умолчанию
+            Default
           </button>
           <button
             @click="chooseSort('price-asc')"
             class="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100"
           >
-            Цена: по возрастанию
+            Price: Low to High
           </button>
           <button
             @click="chooseSort('price-desc')"
             class="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100"
           >
-            Цена: по убыванию
+            Price: High to Low
           </button>
           <button
             @click="chooseSort('popularity')"
             class="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100"
           >
-            Популярность
+            Popularity
           </button>
         </div>
       </transition>

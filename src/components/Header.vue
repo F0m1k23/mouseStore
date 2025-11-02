@@ -17,10 +17,10 @@ onMounted(() => document.addEventListener("click", onDocumentClick));
 onBeforeUnmount(() => document.removeEventListener("click", onDocumentClick));
 
 const menuList = [
-  { name: "Главная", href: "/" },
-  { name: "Каталог", href: "/catalog" },
-  { name: "О нас", href: "/about" },
-  { name: "Контакты", href: "/contacts" },
+  { name: "Home", href: "/" },
+  { name: "Catalog", href: "/catalog" },
+  { name: "About", href: "/about" },
+  { name: "Contacts", href: "/contacts" },
 ];
 </script>
 

@@ -48,7 +48,7 @@ const cartStore = useCartStore();
                 <button
                   @click.prevent="cartStore.decrementQuantity(item.id)"
                   class="inline-flex h-8 w-8 items-center justify-center rounded-sm border border-gray-200 bg-white text-gray-700 hover:bg-gray-50"
-                  aria-label="Уменьшить"
+                  aria-label="Decrease"
                 >
                   -
                 </button>
@@ -64,7 +64,7 @@ const cartStore = useCartStore();
                 <button
                   @click.prevent="cartStore.incrementQuantity(item.id)"
                   class="inline-flex h-8 w-8 items-center justify-center rounded-sm border border-gray-200 bg-white text-gray-700 hover:bg-gray-50"
-                  aria-label="Увеличить"
+                  aria-label="Increase"
                 >
                   +
                 </button>
@@ -72,7 +72,7 @@ const cartStore = useCartStore();
                 <button
                   @click.prevent="cartStore.removeFromCart(item.id)"
                   class="text-gray-600 transition hover:text-red-600 ml-2"
-                  title="Удалить товар"
+                  title="Remove item"
                 >
                   <span class="sr-only">Remove item</span>
                   <svg
@@ -128,14 +128,14 @@ const cartStore = useCartStore();
                   @click.prevent="cartStore.clearCart()"
                   class="rounded-sm bg-red-100 px-4 py-2 text-sm text-red-700 transition hover:bg-red-200"
                 >
-                  Очистить корзину
+                  Clear cart
                 </button>
 
                 <a
                   href="#"
                   class="block rounded-sm bg-gray-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-gray-600"
                 >
-                  Купить сейчас
+                  Buy now
                 </a>
               </div>
             </div>
@@ -150,7 +150,7 @@ const cartStore = useCartStore();
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
-            class="size-10"
+            class="size-12 text-white"
           >
             <path
               stroke-linecap="round"
@@ -159,15 +159,15 @@ const cartStore = useCartStore();
             />
           </svg>
 
-          <h2 class="text-2xl font-bold text-gray-900">Корзина</h2>
+          <h2 class="text-2xl font-bold text-white">Your Cart is Empty</h2>
         </div>
 
         <p class="text-gray-600">
-          Похоже, вы еще не добавили ничего в корзину.
+          It looks like you haven’t added anything to your cart yet.
         </p>
         <router-link
           to="/"
-          class="rounded-sm bg-yellow-400 px-5 py-3 text-sm text-white transition hover:bg-yellow-500"
+          class="px-6 py-3 rounded-xl bg-teal-600 text-white hover:bg-teal-500 transition cursor-pointer"
         >
           Shop Now
         </router-link>

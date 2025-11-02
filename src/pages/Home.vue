@@ -27,11 +27,11 @@ const showProduct = (id) => {
     <div class="container mx-auto px-4">
       <div class="text-center mb-12 slide-in-left">
         <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-          Популярные <span class="gradient-text">товары</span>
+          Popular <span class="gradient-text">Products</span>
         </h2>
         <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-          Откройте для себя наши самые популярные игровые аксессуары, выбранные
-          тысячами геймеров
+          Discover our most popular gaming accessories, chosen by thousands of
+          gamers
         </p>
       </div>
 
@@ -54,7 +54,7 @@ const showProduct = (id) => {
           to="/catalog"
           class="btn-primary text-lg px-8 py-4 hover:shadow-glow"
         >
-          Смотреть все товары
+          View all products
           <svg
             class="inline-block ml-2 size-5"
             fill="none"
@@ -96,10 +96,10 @@ const showProduct = (id) => {
             </svg>
           </div>
           <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-            Молниеносная скорость
+            Lightning-fast speed
           </h3>
           <p class="text-gray-600 dark:text-gray-400">
-            Технологии последнего поколения для максимальной производительности
+            Next-gen technology for maximum performance
           </p>
         </div>
 
@@ -122,10 +122,10 @@ const showProduct = (id) => {
             </svg>
           </div>
           <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-            Качество гарантировано
+            Quality guaranteed
           </h3>
           <p class="text-gray-600 dark:text-gray-400">
-            Только проверенные бренды с официальной гарантией
+            Only trusted brands with official warranty
           </p>
         </div>
 
@@ -148,10 +148,10 @@ const showProduct = (id) => {
             </svg>
           </div>
           <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-            Любим геймерами
+            Loved by gamers
           </h3>
           <p class="text-gray-600 dark:text-gray-400">
-            Тысячи положительных отзывов от профессиональных игроков
+            Thousands of positive reviews from pro players
           </p>
         </div>
       </div>

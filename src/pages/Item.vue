@@ -39,7 +39,7 @@ const toggleZoom = () => (isZoomed.value = !isZoomed.value);
         v-if="!store.product"
         class="text-center py-20 text-gray-500 dark:text-gray-400"
       >
-        <span class="text-lg">Загрузка товара...</span>
+        <span class="text-lg">Loading product...</span>
       </div>
 
       <!-- Контент, когда товар есть -->

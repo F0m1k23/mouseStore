@@ -4,7 +4,7 @@
       <h2
         class="text-3xl font-bold text-teal-600 dark:text-teal-300 mb-12 slide-in-left gradient-text"
       >
-        Почему выбирают нас
+        Why Choose Us
       </h2>
 
       <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
@@ -31,10 +31,11 @@
           <h3
             class="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-100"
           >
-            Быстрая доставка
+            Fast Delivery
           </h3>
           <p class="text-gray-600 dark:text-gray-400">
-            Доставляем по всей Польше за 2–3 дня. Удобно, быстро и надёжно.
+            We deliver all over Poland within 2–3 days. Convenient, fast, and
+            reliable.
           </p>
         </div>
 
@@ -62,10 +63,10 @@
           <h3
             class="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-100"
           >
-            Проверенное качество
+            Verified Quality
           </h3>
           <p class="text-gray-600 dark:text-gray-400">
-            Каждая мышь и клавиатура проходит тест перед отправкой.
+            Every mouse and keyboard is tested before shipping.
           </p>
         </div>
 
@@ -93,10 +94,11 @@
           <h3
             class="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-100"
           >
-            Гарантия 12 месяцев
+            12-Month Warranty
           </h3>
           <p class="text-gray-600 dark:text-gray-400">
-            Мы уверены в нашей продукции и предоставляем официальную гарантию.
+            We stand behind our products and provide an official 12-month
+            warranty.
           </p>
         </div>
 
@@ -124,10 +126,10 @@
           <h3
             class="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-100"
           >
-            Поддержка 24/7
+            24/7 Support
           </h3>
           <p class="text-gray-600 dark:text-gray-400">
-            Наши специалисты всегда на связи — Telegram, Email, Instagram.
+            Our team is always online — Telegram, Email, Instagram.
           </p>
         </div>
       </div>

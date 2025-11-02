@@ -6,12 +6,12 @@
         <h2
           class="text-3xl sm:text-4xl font-bold text-teal-600 dark:text-teal-300 mb-6"
         >
-          Свяжись с нами
+          Contact Us
         </h2>
 
         <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
-          Мы всегда рады новым идеям и отзывам. Напиши нам — и мы ответим в
-          течение дня.
+          We always welcome new ideas and feedback. Write to us — and we'll
+          respond within a day.
         </p>
 
         <ul class="space-y-5 text-gray-700 dark:text-gray-300">

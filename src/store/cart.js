@@ -8,17 +8,17 @@ export const useCartStore = defineStore('cart', () => {
 		if (existing) {
 			existing.quantity++
 			toast.success(
-				`Количество ${product.name} увеличено до ${existing.quantity} 🛒`
+				`Quantity of ${product.name} increased to ${existing.quantity} 🛒`
 			)
 		} else {
 			cartItems.value.push({ ...product, quantity: 1 })
-			toast.success(`${product.name} добавлен в корзину 🛒`)
+			toast.success(`${product.name} added to cart 🛒`)
 		}
 	}
 
 	function removeFromCart(id) {
 		cartItems.value = cartItems.value.filter(p => p.id !== id)
-		toast.success(`Товар удален из корзины 🛒`)
+		toast.success(`Item removed from cart 🛒`)
 	}
 
 	// 🟢 Обновление количества

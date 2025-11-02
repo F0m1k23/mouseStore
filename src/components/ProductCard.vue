@@ -86,7 +86,7 @@ const props = defineProps({
           aria-label="Добавить в корзину"
           class="rounded-xl bg-teal-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-teal-500 transition-all duration-200 active:scale-95"
         >
-          Добавить
+          Add
         </button>
       </div>
     </div>
