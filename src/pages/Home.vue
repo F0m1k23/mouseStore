@@ -19,23 +19,47 @@ const showProduct = (id) => {
 
 <template>
   <Hero />
-  <div class="container mx-auto px-4 py-8">
-    <h1 class="text-3xl font-bold mb-4">Welcome to Our Store</h1>
-    <div class="flex justify-between items-center">
-      <p class="text-gray-700 mb-8">
-        Discover the best products at unbeatable prices.
-      </p>
-      <router-link
-        to="/catalog"
-        class="group relative inline-flex items-center overflow-hidden rounded-sm px-8 py-3 text-gray-700 focus:ring-3 focus:outline-hidden"
+
+  <!-- Популярные товары секция -->
+  <section
+    class="py-16 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800"
+  >
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12 slide-in-left">
+        <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          Популярные <span class="gradient-text">товары</span>
+        </h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          Откройте для себя наши самые популярные игровые аксессуары, выбранные
+          тысячами геймеров
+        </p>
+      </div>
+
+      <div
+        class="grid justify-center grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6"
       >
-        <span class="absolute -start-full transition-all group-hover:start-4">
+        <ProductCard
+          v-for="(product, index) in store.products.slice(0, 8)"
+          :key="product.id"
+          :product="product"
+          :style="{ animationDelay: `${index * 0.1}s` }"
+          class="fade-in-up"
+          @add-to-cart="cartStore.addToCart"
+          @open-card="showProduct(product.id)"
+        />
+      </div>
+
+      <div class="text-center mt-12">
+        <router-link
+          to="/catalog"
+          class="btn-primary text-lg px-8 py-4 hover:shadow-glow"
+        >
+          Смотреть все товары
           <svg
-            class="size-5 rtl:rotate-180"
-            xmlns="http://www.w3.org/2000/svg"
+            class="inline-block ml-2 size-5"
             fill="none"
-            viewBox="0 0 24 24"
             stroke="currentColor"
+            viewBox="0 0 24 24"
           >
             <path
               stroke-linecap="round"
@@ -44,24 +68,96 @@ const showProduct = (id) => {
               d="M17 8l4 4m0 0l-4 4m4-4H3"
             ></path>
           </svg>
-        </span>
-
-        <span class="text-sm font-medium transition-all group-hover:ms-4">
-          Весь каталог
-        </span>
-      </router-link>
+        </router-link>
+      </div>
     </div>
+  </section>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      <ProductCard
-        v-for="product in store.products"
-        :key="product.id"
-        :product="product"
-        @add-to-cart="cartStore.addToCart"
-        @open-card="showProduct(product.id)"
-      />
+  <!-- Особенности секция -->
+  <section class="py-16 bg-white dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center slide-in-left">
+          <div
+            class="inline-flex items-center justify-center w-16 h-16 bg-teal-100 dark:bg-teal-900/30 rounded-full mb-4"
+          >
+            <svg
+              class="w-8 h-8 text-teal-600 dark:text-teal-300"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 10V3L4 14h7v7l9-11h-7z"
+              ></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+            Молниеносная скорость
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400">
+            Технологии последнего поколения для максимальной производительности
+          </p>
+        </div>
+
+        <div class="text-center slide-in-left" style="animation-delay: 0.2s">
+          <div
+            class="inline-flex items-center justify-center w-16 h-16 bg-teal-100 dark:bg-teal-900/30 rounded-full mb-4"
+          >
+            <svg
+              class="w-8 h-8 text-teal-600 dark:text-teal-300"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+              ></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+            Качество гарантировано
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400">
+            Только проверенные бренды с официальной гарантией
+          </p>
+        </div>
+
+        <div class="text-center slide-in-left" style="animation-delay: 0.4s">
+          <div
+            class="inline-flex items-center justify-center w-16 h-16 bg-teal-100 dark:bg-teal-900/30 rounded-full mb-4"
+          >
+            <svg
+              class="w-8 h-8 text-teal-600 dark:text-teal-300"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+              ></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+            Любим геймерами
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400">
+            Тысячи положительных отзывов от профессиональных игроков
+          </p>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
+
   <Stats />
   <Cta />
 </template>

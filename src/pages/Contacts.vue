@@ -1,5 +1,5 @@
 <template>
-  <section class="py-20 bg-gray-50 dark:bg-gray-900">
+  <section class="py-20 bg-gray-700 dark:bg-gray-900">
     <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-start">
       <!-- Контактная информация -->
       <div>

@@ -1,11 +1,17 @@
 <script setup>
+// Карточка товара — небольшой, самодостаточный компонент.
+// Принимает `product` в props и эмитит события для добавления в корзину и открытия карточки.
 import { ref } from "vue";
+
 const inFavorite = ref(false);
 const addInFavorite = () => {
+  // Тогглим состояние избранного — пока только локально
   inFavorite.value = !inFavorite.value;
-  console.log("Product added to favorites:", props.product.id);
+  console.log("Product added to favorites:", props.product?.id);
 };
-defineEmits(["add-to-cart", "open-card"]);
+
+// Объявляем события, которые компонент может эмитить
+const emit = defineEmits(["add-to-cart", "open-card"]);
 const props = defineProps({
   product: Object,
 });
@@ -76,7 +82,8 @@ const props = defineProps({
 
         <button
           type="button"
-          @click.prevent="$emit('add-to-cart', props.product)"
+          @click.prevent="emit('add-to-cart', props.product)"
+          aria-label="Добавить в корзину"
           class="rounded-xl bg-teal-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-teal-500 transition-all duration-200 active:scale-95"
         >
           Добавить

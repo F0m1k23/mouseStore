@@ -1,7 +1,30 @@
+<script setup>
+import { ref, computed } from "vue";
+const sortOpen = ref(false);
+const selectedSort = ref("default");
+const emit = defineEmits(["sort-changed"]);
+
+function chooseSort(key) {
+  selectedSort.value = key;
+  emit("sort-changed", key);
+  sortOpen.value = false;
+}
+
+const selectedSortLabel = computed(() => {
+  const map = {
+    default: "По умолчанию",
+    "price-asc": "Цена ↑",
+    "price-desc": "Цена ↓",
+    popularity: "Популярность",
+  };
+  return map[selectedSort.value] || "По умолчанию";
+});
+</script>
+
 <template>
   <div class="space-y-4 max-w-[500px] my-3 px-3">
     <details
-      class="group relative overflow-hidden rounded border border-gray-300 shadow-sm"
+      class="group relative overflow-hidden rounded border bg-white border-gray-300 shadow-sm"
     >
       <summary
         class="flex items-center justify-between gap-2 p-3 text-gray-700 transition-colors hover:text-gray-900 [&amp;::-webkit-details-marker]:hidden"
@@ -76,8 +99,80 @@
       </div>
     </details>
 
+    <!-- Sort button (красивый контрол) -->
+    <div class="relative">
+      <button
+        @click="sortOpen = !sortOpen"
+        class="inline-flex items-center gap-2 rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium shadow-sm hover:shadow-md transition"
+        aria-expanded="false"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-4 h-4 text-gray-600"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01.293.707l-4 4V16a1 1 0 01-1.447.894L8 14.618 4.447 16.894A1 1 0 013 16V8.707L.293 5.999A1 1 0 011 5V4z"
+            clip-rule="evenodd"
+          />
+        </svg>
+        Sort:
+        <span class="font-semibold text-gray-800 ml-1">{{
+          selectedSortLabel
+        }}</span>
+        <svg
+          class="w-4 h-4 ml-2 text-gray-500"
+          viewBox="0 0 20 20"
+          fill="none"
+          stroke="currentColor"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M6 8l4 4 4-4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+          />
+        </svg>
+      </button>
+
+      <transition name="fade-scale">
+        <div
+          v-if="sortOpen"
+          class="absolute z-50 mt-2 w-56 rounded-md bg-white shadow-lg border border-gray-200 py-2"
+        >
+          <button
+            @click="chooseSort('default')"
+            class="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100"
+          >
+            По умолчанию
+          </button>
+          <button
+            @click="chooseSort('price-asc')"
+            class="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100"
+          >
+            Цена: по возрастанию
+          </button>
+          <button
+            @click="chooseSort('price-desc')"
+            class="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100"
+          >
+            Цена: по убыванию
+          </button>
+          <button
+            @click="chooseSort('popularity')"
+            class="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100"
+          >
+            Популярность
+          </button>
+        </div>
+      </transition>
+    </div>
+
     <details
-      class="group relative overflow-hidden rounded border border-gray-300 shadow-sm s"
+      class="group relative overflow-hidden rounded bg-white border border-gray-300 shadow-sm s"
     >
       <summary
         class="flex items-center justify-between gap-2 p-3 text-gray-700 transition-colors hover:text-gray-900 [&amp;::-webkit-details-marker]:hidden"

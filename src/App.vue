@@ -8,7 +8,7 @@ import { Toaster } from "vue-sonner";
   <div class="min-h-screen flex flex-col">
     <Header />
     <Toaster position="top-right" rich-colors theme="system" />
-    <main class="flex-1">
+    <main class="flex-1 bg-gray-900">
       <RouterView />
     </main>
     <Footer />

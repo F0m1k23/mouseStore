@@ -1,5 +1,7 @@
 <script setup>
+// Импорт стора корзины (Pinia)
 import { useCartStore } from "../store/cart";
+// Инициализируем стор — он содержит cartItems, totalPrice и методы управления
 const cartStore = useCartStore();
 </script>
 <template>
@@ -16,38 +18,61 @@ const cartStore = useCartStore();
               :key="item.id"
               class="flex items-center gap-4"
             >
+              <!-- Превью продукта -->
               <img
-                :src="item.images[0]"
+                :src="item.images?.[0]"
                 :alt="item.name"
-                class="size-16 rounded-sm object-cover"
+                class="w-16 h-16 rounded-sm object-cover"
               />
-              <div>
+
+              <!-- Название и цена -->
+              <div class="flex-1">
                 <h3 class="text-sm text-gray-900">{{ item.name }}</h3>
-                <dl class="mt-0.5 space-y-px text-[10px] text-gray-600">
-                  <div>
-                    <dt class="inline">Color:</dt>
-                    <dd class="inline">{{ cartStore.priceWithQuantity }}</dd>
-                  </div>
+                <dl class="mt-0.5 space-y-px text-[12px] text-gray-600">
+                  <!-- Указываем цену за единицу и подсчет подытога для этого товара -->
                   <div>
                     <dt class="inline">Price:</dt>
-                    <dd class="inline font-bold">${{ item.price }}</dd>
+                    <dd class="inline font-medium ml-1">${{ item.price }}</dd>
+                  </div>
+                  <div>
+                    <dt class="inline">Subtotal:</dt>
+                    <dd class="inline font-bold ml-1">
+                      ${{ (item.price * item.quantity).toFixed(2) }}
+                    </dd>
                   </div>
                 </dl>
               </div>
-              <div class="flex flex-1 items-center justify-end gap-2">
-                <form>
-                  <label for="Line1Qty" class="sr-only"> Quantity </label>
-                  <input
-                    v-model.number="item.quantity"
-                    @change="cartStore.updateQuantity(item)"
-                    type="number"
-                    min="1"
-                    class="h-8 w-12 rounded-sm border-gray-200 bg-gray-50 p-0 text-center text-xs text-gray-600 [-moz-appearance:_textfield] focus:outline-hidden [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
-                  />
-                </form>
+
+              <!-- Контролы количества и удаление -->
+              <div class="flex items-center gap-2">
+                <button
+                  @click.prevent="cartStore.decrementQuantity(item.id)"
+                  class="inline-flex h-8 w-8 items-center justify-center rounded-sm border border-gray-200 bg-white text-gray-700 hover:bg-gray-50"
+                  aria-label="Уменьшить"
+                >
+                  -
+                </button>
+
+                <input
+                  v-model.number="item.quantity"
+                  @change="cartStore.updateQuantity(item)"
+                  type="number"
+                  min="1"
+                  class="h-8 w-14 rounded-sm border border-gray-200 bg-gray-50 p-0 text-center text-xs text-gray-600"
+                />
+
+                <button
+                  @click.prevent="cartStore.incrementQuantity(item.id)"
+                  class="inline-flex h-8 w-8 items-center justify-center rounded-sm border border-gray-200 bg-white text-gray-700 hover:bg-gray-50"
+                  aria-label="Увеличить"
+                >
+                  +
+                </button>
+
                 <button
                   @click.prevent="cartStore.removeFromCart(item.id)"
-                  class="text-gray-600 transition hover:text-red-600"
+                  class="text-gray-600 transition hover:text-red-600 ml-2"
+                  title="Удалить товар"
                 >
                   <span class="sr-only">Remove item</span>
                   <svg
@@ -56,7 +81,7 @@ const cartStore = useCartStore();
                     viewBox="0 0 24 24"
                     stroke-width="1.5"
                     stroke="currentColor"
-                    class="size-4"
+                    class="w-4 h-4"
                   >
                     <path
                       stroke-linecap="round"
@@ -71,9 +96,10 @@ const cartStore = useCartStore();
           <div class="mt-8 flex justify-end border-t border-gray-100 pt-8">
             <div class="w-screen max-w-lg space-y-4">
               <dl class="space-y-0.5 text-sm text-gray-700">
-                <div class="flex justify-between !text-base font-medium">
+                <div class="flex justify-between text-base font-medium">
                   <dt>Total</dt>
-                  <dd>${{ cartStore.totalPrice }}</dd>
+                  <!-- Форматируем сумму с двумя знаками -->
+                  <dd>${{ cartStore.totalPrice.toFixed(2) }}</dd>
                 </div>
               </dl>
               <div class="flex justify-end">
@@ -86,7 +112,7 @@ const cartStore = useCartStore();
                     viewBox="0 0 24 24"
                     stroke-width="1.5"
                     stroke="currentColor"
-                    class="-ms-1 me-1.5 size-4"
+                    class="w-4 h-4 mr-2"
                   >
                     <path
                       stroke-linecap="round"
@@ -97,7 +123,14 @@ const cartStore = useCartStore();
                   <p class="text-xs whitespace-nowrap">2 Discounts Applied</p>
                 </span>
               </div>
-              <div class="flex justify-end">
+              <div class="flex justify-end items-center gap-3">
+                <button
+                  @click.prevent="cartStore.clearCart()"
+                  class="rounded-sm bg-red-100 px-4 py-2 text-sm text-red-700 transition hover:bg-red-200"
+                >
+                  Очистить корзину
+                </button>
+
                 <a
                   href="#"
                   class="block rounded-sm bg-gray-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-gray-600"

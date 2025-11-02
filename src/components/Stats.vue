@@ -1,14 +1,16 @@
 <template>
   <section class="py-16 bg-gray-50 dark:bg-gray-900">
     <div class="max-w-7xl mx-auto px-6 text-center">
-      <h2 class="text-3xl font-bold text-teal-600 dark:text-teal-300 mb-12">
+      <h2
+        class="text-3xl font-bold text-teal-600 dark:text-teal-300 mb-12 slide-in-left gradient-text"
+      >
         Почему выбирают нас
       </h2>
 
       <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
         <!-- 1 -->
         <div
-          class="p-6 rounded-2xl shadow-sm bg-white dark:bg-gray-800 hover:shadow-md transition"
+          class="p-6 rounded-2xl shadow-sm bg-white dark:bg-gray-800 hover:shadow-lg transition-all duration-300 hover-lift slide-in-left"
         >
           <div class="flex justify-center mb-4">
             <svg
@@ -38,7 +40,8 @@
 
         <!-- 2 -->
         <div
-          class="p-6 rounded-2xl shadow-sm bg-white dark:bg-gray-800 hover:shadow-md transition"
+          class="p-6 rounded-2xl shadow-sm bg-white dark:bg-gray-800 hover:shadow-lg transition-all duration-300 hover-lift slide-in-left"
+          style="animation-delay: 0.2s"
         >
           <div class="flex justify-center mb-4">
             <svg
@@ -68,7 +71,8 @@
 
         <!-- 3 -->
         <div
-          class="p-6 rounded-2xl shadow-sm bg-white dark:bg-gray-800 hover:shadow-md transition"
+          class="p-6 rounded-2xl shadow-sm bg-white dark:bg-gray-800 hover:shadow-lg transition-all duration-300 hover-lift slide-in-left"
+          style="animation-delay: 0.4s"
         >
           <div class="flex justify-center mb-4">
             <svg
@@ -98,7 +102,8 @@
 
         <!-- 4 -->
         <div
-          class="p-6 rounded-2xl shadow-sm bg-white dark:bg-gray-800 hover:shadow-md transition"
+          class="p-6 rounded-2xl shadow-sm bg-white dark:bg-gray-800 hover:shadow-lg transition-all duration-300 hover-lift slide-in-left"
+          style="animation-delay: 0.6s"
         >
           <div class="flex justify-center mb-4">
             <svg
