@@ -1,9 +1,10 @@
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, reactive } from "vue";
 const sortOpen = ref(false);
 const selectedSort = ref("default");
 const emit = defineEmits(["sort-changed"]);
 
+const option = reactive({});
 function chooseSort(key) {
   selectedSort.value = key;
   emit("sort-changed", key);

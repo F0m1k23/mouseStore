@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 import { supabase } from '../lib/supabaseClient'
-
+import { toast } from 'vue-sonner'
 export const useProductsStore = defineStore('products', () => {
 	const products = ref([])
 	const product = ref(null)
@@ -47,9 +47,51 @@ export const useProductsStore = defineStore('products', () => {
 		}
 	}
 
+	const isFavorite = async id => {
+		// Find the product
+		const index = products.value.findIndex(p => p.id === id)
+		if (index === -1) return
+
+		const item = products.value[index]
+		const newValue = !item.isfavorite
+
+		// Update locally
+		products.value[index] = { ...item, isfavorite: newValue }
+
+		// Update if the same product is open
+		if (product.value && product.value.id === id) {
+			product.value.isfavorite = newValue
+		}
+
+		// Show toast notification
+		if (newValue) toast.success('Added to favorites 💚')
+		else toast.info('Removed from favorites ❌')
+
+		// Save changes in Supabase
+		const { error } = await supabase
+			.from('products')
+			.update({ isfavorite: newValue })
+			.eq('id', id)
+
+		if (error) {
+			console.error('Error updating favorite:', error.message)
+			toast.error('Failed to update product ⚠️')
+		} else {
+			console.log(`✅ Product ${id} updated: isfavorite = ${newValue}`)
+		}
+	}
+
 	// Загружаем список при монтировании
 	onMounted(() => {
 		getProducts()
+		const storedProducts = localStorage.getItem('products')
+		if (storedProducts) {
+			products.value = JSON.parse(storedProducts)
+		}
+	})
+	// Сохраняем список в localStorage при изменении
+	watch(products, () => {
+		localStorage.setItem('products', JSON.stringify(products.value))
 	})
 
 	return {
@@ -58,5 +100,6 @@ export const useProductsStore = defineStore('products', () => {
 		getProducts,
 		showProductById,
 		showProductBySlug,
+		isFavorite,
 	}
 })

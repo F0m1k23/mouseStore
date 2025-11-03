@@ -22,16 +22,18 @@
         </p>
 
         <div class="flex gap-4 sm:justify-start justify-center">
-          <button
+          <router-link
+            to="/catalog"
             class="px-6 py-3 rounded-xl bg-teal-600 text-white hover:bg-teal-500 transition cursor-pointer"
           >
             Our Products
-          </button>
-          <button
+          </router-link>
+          <router-link
+            to="/contacts"
             class="px-6 py-3 rounded-xl border border-teal-600 text-teal-600 dark:border-teal-300 dark:text-teal-300 hover:bg-teal-600 hover:text-white transition cursor-pointer"
           >
             Contact Us
-          </button>
+          </router-link>
         </div>
       </div>
 

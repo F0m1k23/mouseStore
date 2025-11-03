@@ -38,7 +38,7 @@ const showProduct = (product) => {
         class="grid justify-center grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6"
       >
         <ProductCard
-          v-for="(product, index) in store.products.slice(0, 8)"
+          v-for="(product, index) in store.products.slice(0, 3)"
           :key="product.id"
           :product="product"
           :style="{ animationDelay: `${index * 0.1}s` }"

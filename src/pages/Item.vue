@@ -35,6 +35,15 @@ watch(
 // Для галереи
 const changeImage = (img) => (activeImage.value = img);
 const toggleZoom = () => (isZoomed.value = !isZoomed.value);
+
+const productColor = ref(null);
+const addColor = (color) => {
+  productColor.value = color;
+  console.log(productColor.value);
+};
+// const addToCart = (product) => {
+//   addColor)
+// };
 </script>
 
 <template>
@@ -115,7 +124,11 @@ const toggleZoom = () => (isZoomed.value = !isZoomed.value);
                   <span
                     v-for="color in store.product.colors"
                     :key="color"
-                    class="inline-block px-3 py-1 rounded-full bg-teal-600/10 text-teal-700 dark:bg-teal-300/10 dark:text-teal-300 text-sm"
+                    @click="addColor(color)"
+                    :class="{
+                      'dark:bg-teal-700': productColor === color,
+                    }"
+                    class="inline-block px-3 py-1 rounded-full text-teal-700 dark:bg-teal-300/10 dark:text-teal-300 text-sm cursor-pointer"
                   >
                     {{ color }}
                   </span>
@@ -136,7 +149,7 @@ const toggleZoom = () => (isZoomed.value = !isZoomed.value);
 
             <div class="mt-8">
               <button
-                @click="cartStore.addToCart(store.product)"
+                @click="cartStore.addToCart(store.product, productColor)"
                 type="button"
                 class="w-full bg-teal-600 text-white py-3 rounded-xl font-medium text-lg shadow-sm hover:bg-teal-500 transition duration-200"
               >

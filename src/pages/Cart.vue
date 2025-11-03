@@ -31,6 +31,10 @@ const cartStore = useCartStore();
                 <dl class="mt-0.5 space-y-px text-[12px] text-gray-600">
                   <!-- Указываем цену за единицу и подсчет подытога для этого товара -->
                   <div>
+                    <dt class="inline">color:</dt>
+                    <dd class="inline font-medium ml-1">{{ item.color }}</dd>
+                  </div>
+                  <div>
                     <dt class="inline">Price:</dt>
                     <dd class="inline font-medium ml-1">${{ item.price }}</dd>
                   </div>

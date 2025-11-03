@@ -3,10 +3,12 @@ import { ref, computed, watch } from 'vue'
 import { toast } from 'vue-sonner'
 export const useCartStore = defineStore('cart', () => {
 	const cartItems = ref([])
-	function addToCart(product) {
+	function addToCart(product, color) {
 		const existing = cartItems.value.find(p => p.id === product.id)
 		if (existing) {
+			existing.color = color
 			existing.quantity++
+			console.log(existing)
 			toast.success(
 				`Quantity of ${product.name} increased to ${existing.quantity} 🛒`
 			)
@@ -18,7 +20,7 @@ export const useCartStore = defineStore('cart', () => {
 
 	function removeFromCart(id) {
 		cartItems.value = cartItems.value.filter(p => p.id !== id)
-		toast.success(`Item removed from cart 🛒`)
+		toast.error('Item removed from cart 🛒')
 	}
 
 	// 🟢 Обновление количества
@@ -57,7 +59,7 @@ export const useCartStore = defineStore('cart', () => {
 	// Очистить корзину полностью
 	function clearCart() {
 		cartItems.value = []
-		toast.success('Корзина очищена 🧹')
+		toast.success('Cart cleared 🧹')
 	}
 
 	// 💰 Общая сумма (reactive)

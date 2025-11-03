@@ -5,6 +5,7 @@ import About from '../pages/About.vue'
 import Contacts from '../pages/Contacts.vue'
 import Catalog from '../pages/Catalog.vue'
 import Item from '../pages/Item.vue'
+import NotFound from '../pages/NotFound.vue'
 const router = createRouter({
 	history: createWebHistory(),
 	routes: [
@@ -38,6 +39,11 @@ const router = createRouter({
 			name: 'CatalogItem',
 			component: Item,
 			props: true,
+		},
+		{
+			path: '/:pathMatch(.*)*',
+			name: 'NotFound',
+			component: NotFound,
 		},
 	],
 })

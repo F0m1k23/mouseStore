@@ -2,7 +2,8 @@
 // Карточка товара — небольшой, самодостаточный компонент.
 // Принимает `product` в props и эмитит события для добавления в корзину и открытия карточки.
 import { ref } from "vue";
-
+import { useProductsStore } from "../store/products";
+const store = useProductsStore();
 const inFavorite = ref(false);
 const addInFavorite = () => {
   // Тогглим состояние избранного — пока только локально
@@ -23,11 +24,11 @@ const props = defineProps({
   >
     <!-- Кнопка избранного -->
     <button
-      @click="addInFavorite"
+      @click="store.isFavorite(props.product.id)"
       :class="{
-        'bg-teal-600 text-white': inFavorite,
+        'bg-teal-600 text-white': props.product.isfavorite,
         'bg-white dark:bg-gray-700 text-gray-600 dark:text-gray-300':
-          !inFavorite,
+          !props.product.isfavorite,
       }"
       class="absolute right-4 top-4 z-10 rounded-full p-2 shadow-md transition hover:bg-teal-500 hover:text-white cursor-pointer"
     >
@@ -84,7 +85,7 @@ const props = defineProps({
           type="button"
           @click.prevent="emit('add-to-cart', props.product)"
           aria-label="Добавить в корзину"
-          class="rounded-xl bg-teal-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-teal-500 transition-all duration-200 active:scale-95"
+          class="rounded-xl bg-teal-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-teal-500 transition-all duration-200 active:scale-95 cursor-pointer"
         >
           Add
         </button>
