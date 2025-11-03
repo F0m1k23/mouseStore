@@ -1,34 +1,62 @@
 import { defineStore } from 'pinia'
 import { ref, onMounted } from 'vue'
 import { supabase } from '../lib/supabaseClient'
+
 export const useProductsStore = defineStore('products', () => {
 	const products = ref([])
 	const product = ref(null)
+
+	// Загружаем все товары (каталог)
 	async function getProducts() {
 		try {
-			const { data, error } = await supabase.from('products').select()
+			const { data, error } = await supabase.from('products').select('*')
+			if (error) throw error
 			products.value = data
-			console.log(data)
 		} catch (error) {
-			console.log(`Error ${error}`, error)
+			console.error('Error loading products:', error.message)
 		}
 	}
-	const showProduct = async id => {
+
+	// Загружаем один товар по id (если нужно где-то)
+	async function showProductById(id) {
 		try {
 			const { data, error } = await supabase
 				.from('products')
-				.select()
+				.select('*')
 				.eq('id', id)
 				.single()
+			if (error) throw error
 			product.value = data
 		} catch (error) {
-			console.log(`Error ${error}`, error)
+			console.error('Error loading product by id:', error.message)
 		}
-		console.log(id)
-		console.log(product.value)
 	}
+
+	// 🔹 Загружаем один товар по slug (для страницы /catalog/:slug)
+	async function showProductBySlug(slug) {
+		try {
+			const { data, error } = await supabase
+				.from('products')
+				.select('*')
+				.eq('slug', slug)
+				.single()
+			if (error) throw error
+			product.value = data
+		} catch (error) {
+			console.error('Error loading product by slug:', error.message)
+		}
+	}
+
+	// Загружаем список при монтировании
 	onMounted(() => {
 		getProducts()
 	})
-	return { products, getProducts, showProduct, product }
+
+	return {
+		products,
+		product,
+		getProducts,
+		showProductById,
+		showProductBySlug,
+	}
 })

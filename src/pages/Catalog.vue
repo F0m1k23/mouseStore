@@ -10,9 +10,9 @@ const cartStore = useCartStore();
 const router = useRouter();
 const selectedSort = ref("default");
 
-const showProduct = (id) => {
-  store.showProduct(id);
-  router.push(`/catalog/${id}`);
+const showProduct = (product) => {
+  // store.showProduct(product.id); // можешь убрать, если не нужно загружать заново
+  router.push(`/catalog/${product.slug}`);
 };
 
 // computed list with basic sorting applied
@@ -61,7 +61,7 @@ function onSortChanged(key) {
             :key="product.id"
             :product="product"
             @add-to-cart="cartStore.addToCart($event)"
-            @open-card="showProduct(product.id)"
+            @open-card="showProduct(product)"
           />
         </div>
       </div>

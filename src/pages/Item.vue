@@ -3,28 +3,36 @@ import { ref, onMounted, watch } from "vue";
 import { useRoute } from "vue-router";
 import { useProductsStore } from "../store/products";
 import { useCartStore } from "../store/cart";
+
 const cartStore = useCartStore();
 const route = useRoute();
 const store = useProductsStore();
 
-// Безопасная загрузка товара
-onMounted(() => {
-  if (route.params.id) {
-    store.showProduct(route.params.id);
-  }
-});
+// локальные состояния
+const activeImage = ref("");
+const isZoomed = ref(false);
+const loading = ref(true);
 
-// Обновляем, если пользователь кликает на другой товар
+// Загрузка товара по slug
+async function loadProduct() {
+  const slug = route.params.slug;
+  if (!slug) return;
+  loading.value = true;
+  await store.showProductBySlug(slug); // 👈 используем slug
+  activeImage.value = store.product?.images?.[0] || "";
+  loading.value = false;
+}
+
+// При первом открытии страницы
+onMounted(loadProduct);
+
+// Если пользователь открывает другой товар (меняется slug)
 watch(
-  () => route.params.id,
-  (newId) => {
-    if (newId) store.showProduct(newId);
-  }
+  () => route.params.slug,
+  () => loadProduct()
 );
 
 // Для галереи
-const activeImage = ref("");
-const isZoomed = ref(false);
 const changeImage = (img) => (activeImage.value = img);
 const toggleZoom = () => (isZoomed.value = !isZoomed.value);
 </script>

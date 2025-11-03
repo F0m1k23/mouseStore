@@ -34,7 +34,7 @@ const router = createRouter({
 			component: Catalog,
 		},
 		{
-			path: '/catalog/:id',
+			path: '/catalog/:slug',
 			name: 'CatalogItem',
 			component: Item,
 			props: true,

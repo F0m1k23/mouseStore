@@ -9,9 +9,9 @@ const cartStore = useCartStore();
     <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
       <div v-if="cartStore.cartItems.length > 0" class="mx-auto max-w-3xl">
         <header class="text-center">
-          <h1 class="text-xl font-bold text-gray-900 sm:text-3xl">Your Cart</h1>
+          <h1 class="text-xl font-bold text-white sm:text-3xl">Your Cart</h1>
         </header>
-        <div class="mt-8">
+        <div class="mt-8 bg-white py-4 px-4 rounded-2xl">
           <ul class="space-y-4">
             <li
               v-for="item in cartStore.cartItems"
@@ -126,14 +126,14 @@ const cartStore = useCartStore();
               <div class="flex justify-end items-center gap-3">
                 <button
                   @click.prevent="cartStore.clearCart()"
-                  class="rounded-sm bg-red-100 px-4 py-2 text-sm text-red-700 transition hover:bg-red-200"
+                  class="rounded-sm bg-red-100 px-4 py-2 text-sm text-red-700 transition hover:bg-red-200 cursor-pointer"
                 >
                   Clear cart
                 </button>
 
                 <a
                   href="#"
-                  class="block rounded-sm bg-gray-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-gray-600"
+                  class="inline-block rounded-xl bg-teal-600 px-6 py-2 text-white font-medium shadow-md hover:bg-teal-500 transition"
                 >
                   Buy now
                 </a>

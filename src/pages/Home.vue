@@ -11,9 +11,8 @@ import AboutSection from "../components/AboutSection.vue";
 import Stats from "../components/Stats.vue";
 import Cta from "../components/Cta.vue";
 const store = useProductsStore();
-const showProduct = (id) => {
-  router.push(`/catalog/${id}`);
-  store.showProduct(id);
+const showProduct = (product) => {
+  router.push(`/catalog/${product.slug}`);
 };
 </script>
 
@@ -45,7 +44,7 @@ const showProduct = (id) => {
           :style="{ animationDelay: `${index * 0.1}s` }"
           class="fade-in-up"
           @add-to-cart="cartStore.addToCart"
-          @open-card="showProduct(product.id)"
+          @open-card="showProduct(product)"
         />
       </div>
 
