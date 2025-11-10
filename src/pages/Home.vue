@@ -7,7 +7,6 @@ const cartStore = useCartStore();
 
 const router = useRouter();
 import Hero from "../components/Hero.vue";
-import AboutSection from "../components/AboutSection.vue";
 import Stats from "../components/Stats.vue";
 import Cta from "../components/Cta.vue";
 const store = useProductsStore();

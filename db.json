@@ -1,0 +1,211 @@
+{
+	"products": [
+		{
+			"id": 1,
+			"name": "Razer DeathAdder V3 Pro",
+			"slug": "razer-deathadder-v3-pro",
+			"description": "Professional wireless gaming mouse with a high-precision Focus Pro 30K DPI sensor. Ideal for competitive gaming and esports.",
+			"price": 159.99,
+			"images": [
+				"https://images.unsplash.com/photo-1527814050087-3793815479db?w=400",
+				"https://images.unsplash.com/photo-1527814050087-3793815479db?w=400&h=400&fit=crop&crop=face",
+				"https://images.unsplash.com/photo-1527814050087-3793815479db?w=400&h=400&fit=crop&crop=left"
+			],
+			"colors": ["Black", "White", "Mystic Blue"],
+			"isfavorite": false,
+			"popularity": 95,
+			"rating": 4.8,
+			"sensor": "Focus Pro 30K DPI",
+			"connection": "Wireless + USB-C",
+			"weight": "63g"
+		},
+		{
+			"id": 2,
+			"name": "Logitech G Pro X Superlight",
+			"slug": "logitech-g-pro-x-superlight",
+			"description": "The lightest wireless gaming mouse in the world. Weighing under 63g, it provides incredible agility in games.",
+			"price": 149.99,
+			"images": [
+				"https://images.unsplash.com/photo-1527443154391-507e9dc6c5cc?w=400",
+				"https://images.unsplash.com/photo-1527443154391-507e9dc6c5cc?w=400&h=400&fit=crop&crop=face",
+				"https://images.unsplash.com/photo-1527443154391-507e9dc6c5cc?w=400&h=400&fit=crop&crop=left"
+			],
+			"colors": ["Black", "Pink", "White"],
+			"isfavorite": true,
+			"popularity": 98,
+			"rating": 4.9,
+			"sensor": "HERO 25K",
+			"connection": "Wireless LIGHTSPEED",
+			"weight": "63g"
+		},
+		{
+			"id": 3,
+			"name": "SteelSeries Rival 650",
+			"slug": "steelseries-rival-650",
+			"description": "Wireless gaming mouse with advanced TrueMove 3+ dual sensor system for maximum precision.",
+			"price": 129.99,
+			"images": [
+				"https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400",
+				"https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400&h=400&fit=crop&crop=face",
+				"https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400&h=400&fit=crop&crop=left"
+			],
+			"colors": ["Black", "Gray"],
+			"isfavorite": false,
+			"popularity": 85,
+			"rating": 4.6,
+			"sensor": "TrueMove 3+ (12000 CPI)",
+			"connection": "Wireless + USB",
+			"weight": "121g"
+		},
+		{
+			"id": 4,
+			"name": "Corsair Dark Core RGB/SE",
+			"slug": "corsair-dark-core-rgb-se",
+			"description": "Multifunctional gaming mouse with RGB lighting, wireless connection, and detachable side grip.",
+			"price": 99.99,
+			"images": [
+				"https://images.unsplash.com/photo-1555617981-3f0d5f8f0c3b?w=400",
+				"https://images.unsplash.com/photo-1555617981-3f0d5f8f0c3b?w=400&h=400&fit=crop&crop=face",
+				"https://images.unsplash.com/photo-1555617981-3f0d5f8f0c3b?w=400&h=400&fit=crop&crop=left"
+			],
+			"colors": ["Black", "White"],
+			"isfavorite": false,
+			"popularity": 78,
+			"rating": 4.4,
+			"sensor": "PixArt 3327 (10000 CPI)",
+			"connection": "Wireless + USB-C",
+			"weight": "142g"
+		},
+		{
+			"id": 5,
+			"name": "BenQ Zowie EC2",
+			"slug": "benq-zowie-ec2",
+			"description": "Classic wired gaming mouse designed specifically for professional esports. Simple and effective.",
+			"price": 79.99,
+			"images": [
+				"https://images.unsplash.com/photo-1587202372634-32705e3bf49c?w=400",
+				"https://images.unsplash.com/photo-1587202372634-32705e3bf49c?w=400&h=400&fit=crop&crop=face",
+				"https://images.unsplash.com/photo-1587202372634-32705e3bf49c?w=400&h=400&fit=crop&crop=left"
+			],
+			"colors": ["Black", "White"],
+			"isfavorite": true,
+			"popularity": 92,
+			"rating": 4.7,
+			"sensor": "PixArt 3360 (3200 CPI)",
+			"connection": "Wired USB",
+			"weight": "90g"
+		},
+		{
+			"id": 6,
+			"name": "HyperX Pulsefire FPS Pro",
+			"slug": "hyperx-pulsefire-fps-pro",
+			"description": "Reliable wired FPS gaming mouse. Ergonomic design with a precise sensor.",
+			"price": 59.99,
+			"images": [
+				"https://images.unsplash.com/photo-1527443154157-1a48d2d2ad7b?w=400",
+				"https://images.unsplash.com/photo-1527443154157-1a48d2d2ad7b?w=400&h=400&fit=crop&crop=face",
+				"https://images.unsplash.com/photo-1527443154157-1a48d2d2ad7b?w=400&h=400&fit=crop&crop=left"
+			],
+			"colors": ["Black", "Red"],
+			"isfavorite": false,
+			"popularity": 75,
+			"rating": 4.3,
+			"sensor": "PixArt 3389 (16000 CPI)",
+			"connection": "Wired USB",
+			"weight": "95g"
+		},
+		{
+			"id": 7,
+			"name": "ASUS ROG Gladius III",
+			"slug": "asus-rog-gladius-iii",
+			"description": "Republic of Gamers series mouse with customizable RGB lighting and premium switches.",
+			"price": 89.99,
+			"images": [
+				"https://images.unsplash.com/photo-1527443154391-507e9dc6c5cc?w=400",
+				"https://images.unsplash.com/photo-1527443154391-507e9dc6c5cc?w=400&h=400&fit=crop&crop=face",
+				"https://images.unsplash.com/photo-1527443154391-507e9dc6c5cc?w=400&h=400&fit=crop&crop=left"
+			],
+			"colors": ["Black", "White"],
+			"isfavorite": false,
+			"popularity": 82,
+			"rating": 4.5,
+			"sensor": "PixArt PAW3389 (16000 CPI)",
+			"connection": "Wired USB-C",
+			"weight": "79g"
+		},
+		{
+			"id": 8,
+			"name": "Cooler Master MM710",
+			"slug": "cooler-master-mm710",
+			"description": "Ultra-light honeycomb gaming mouse with excellent ventilation and minimal weight.",
+			"price": 69.99,
+			"images": [
+				"https://images.unsplash.com/photo-1555617981-3f0d5f8f0c3b?w=400",
+				"https://images.unsplash.com/photo-1555617981-3f0d5f8f0c3b?w=400&h=400&fit=crop&crop=face",
+				"https://images.unsplash.com/photo-1555617981-3f0d5f8f0c3b?w=400&h=400&fit=crop&crop=left"
+			],
+			"colors": ["Black", "White", "Mystic Blue"],
+			"isfavorite": true,
+			"popularity": 88,
+			"rating": 4.6,
+			"sensor": "PixArt 3389 (16000 CPI)",
+			"connection": "Wired USB",
+			"weight": "53g"
+		},
+		{
+			"id": 9,
+			"name": "Razer Basilisk V3",
+			"slug": "razer-basilisk-v3",
+			"description": "Multifunctional gaming mouse with customizable buttons and Chroma RGB lighting.",
+			"price": 79.99,
+			"images": [
+				"https://images.unsplash.com/photo-1587202372634-32705e3bf49c?w=400",
+				"https://images.unsplash.com/photo-1587202372634-32705e3bf49c?w=400&h=400&fit=crop&crop=face",
+				"https://images.unsplash.com/photo-1587202372634-32705e3bf49c?w=400&h=400&fit=crop&crop=left"
+			],
+			"colors": ["Black", "Green"],
+			"isfavorite": false,
+			"popularity": 80,
+			"rating": 4.4,
+			"sensor": "Focus+ 26K DPI",
+			"connection": "Wired USB",
+			"weight": "101g"
+		},
+		{
+			"id": 10,
+			"name": "Glorious Model O",
+			"slug": "glorious-model-o",
+			"description": "Ultra-light honeycomb gaming mouse with excellent performance and sleek design.",
+			"price": 49.99,
+			"images": [
+				"https://images.unsplash.com/photo-1527443154157-1a48d2d2ad7b?w=400",
+				"https://images.unsplash.com/photo-1527443154157-1a48d2d2ad7b?w=400&h=400&fit=crop&crop=face",
+				"https://images.unsplash.com/photo-1527443154157-1a48d2d2ad7b?w=400&h=400&fit=crop&crop=left"
+			],
+			"colors": ["Black", "White", "Pink"],
+			"isfavorite": true,
+			"popularity": 89,
+			"rating": 4.7,
+			"sensor": "PixArt 3360 (12000 CPI)",
+			"connection": "Wired USB",
+			"weight": "67g"
+		}
+	],
+	"comments": [
+		{
+			"id": 1,
+			"text": "Excellent mouse for professional gaming!",
+			"productId": 1,
+			"author": "Player_Pro"
+		},
+		{
+			"id": 2,
+			"text": "The best mouse I've ever used.",
+			"productId": 2,
+			"author": "GameMaster"
+		}
+	],
+	"profile": {
+		"name": "MouseStore"
+	}
+}

@@ -1,10 +1,12 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from "vue";
 import { useCartStore } from "../store/cart";
+import { useProductsStore } from "../store/products";
 
 const isOpen = ref(false);
 const navRef = ref(null);
 const cartStore = useCartStore();
+const productsStore = useProductsStore();
 
 function onDocumentClick(e) {
   if (!navRef.value) return;
@@ -28,6 +30,45 @@ const menuList = [
   <header
     class="sticky top-0 z-50 bg-gray-900 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 shadow-sm"
   >
+    <!-- Демо-режим индикатор -->
+    <div
+      v-if="productsStore.isUsingFallback"
+      class="bg-gradient-to-r from-yellow-500/90 to-orange-500/90 text-white text-center py-2 text-sm font-medium"
+    >
+      <div class="flex items-center justify-center gap-2">
+        <svg
+          class="w-4 h-4 animate-pulse"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+          ></path>
+        </svg>
+        <span
+          >🎮 Demo Mode - JSON Server не запущен. Показываем 3 образца
+          товара.</span
+        >
+        <svg
+          class="w-4 h-4 animate-pulse"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+          ></path>
+        </svg>
+      </div>
+    </div>
+
     <div class="max-w-7xl mx-auto px-6 sm:px-8">
       <nav ref="navRef" class="flex items-center justify-between py-4">
         <!-- ЛОГО -->
@@ -79,10 +120,10 @@ const menuList = [
               <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 
-                   1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 
-                   1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 
-                   0 0 1 5.513 7.5h12.974c.576 
+                d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993
+                   1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125
+                   1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125
+                   0 0 1 5.513 7.5h12.974c.576
                    0 1.059.435 1.119 1.007Z"
               />
             </svg>
@@ -170,10 +211,10 @@ const menuList = [
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 
-                     1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 
-                     1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 
-                     0 0 1 5.513 7.5h12.974c.576 
+                  d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993
+                     1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125
+                     1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125
+                     0 0 1 5.513 7.5h12.974c.576
                      0 1.059.435 1.119 1.007Z"
                 />
               </svg>
