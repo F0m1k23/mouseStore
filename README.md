@@ -20,7 +20,7 @@ A simple e-commerce demo built with **Vue 3**, **Pinia**, **Vue Router**, **Supa
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/mouseshope.git
+git clone https://github.com/F0m1k23/mouseshope.git
 cd mouseshope
 
 # Install dependencies
